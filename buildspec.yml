@@ -4,6 +4,9 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+      - echo $AWS_DEFAULT_REGION
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo $REPOSITORY_URI
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=015389403723.dkr.ecr.us-east-1.amazonaws.com/sample-springboot
